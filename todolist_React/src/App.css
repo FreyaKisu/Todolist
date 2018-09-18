@@ -1,0 +1,62 @@
+.App {
+  text-align: center;
+}
+
+@import url(
+  http://fonts.googleapis.com/css?family=Roboto:400,
+  100,
+  100italic,
+  300,
+  300ita‌​lic,
+  400italic,
+  500,
+  500italic,
+  700,
+  700italic,
+  900italic,
+  900
+);
+html,
+body,
+html * {
+  font-family: "Roboto", sans-serif;
+}
+
+.App-header {
+  background-color: rgba(44, 43, 43, 0.959);
+  height: 150px;
+  padding: 20px;
+  color: white;
+  width: 100%;
+  font-size: 40px;
+}
+
+.description,
+.date,
+.btn {
+  margin: 10px 10px 10px 10px;
+  text-align: center;
+  font-size: 15px;
+}
+form {
+  border: 1px grey solid;
+  text-align: center;
+  padding: 20px 0px 20px 0px;
+}
+table {
+  font-family: verdana, sans-serif;
+  border-collapse: collapse;
+  width: 50% !important;
+  margin-left: 25% !important;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
