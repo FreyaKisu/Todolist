@@ -3,6 +3,8 @@ import "./App.css";
 import "./index.css";
 import registerServiceWorker from "./registerServiceWorker";
 import "bootstrap/dist/css/bootstrap.css";
+import ReactTable from "react-table";
+import "react-table/react-table.css";
 
 const DeleteButton = props => (
   <button
@@ -65,23 +67,38 @@ class App extends Component {
             <input className="btn btn-primary" type="submit" value="Add" />
           </form>
         </div>
-        <div>
-          <table className="table">
-            <tr>
-              <th>Description</th>
-              <th>Date</th>
-            </tr>
-            {this.state.rows.map((row, index) => (
-              <tr key={index}>
-                <td>{row.description}</td>
-                <td>{row.date}</td>
-                <td>
-                  <DeleteButton onDelete={() => this.handleDelete(index)} />
-                </td>
-              </tr>
-            ))}
-          </table>
-        </div>
+        <ReactTable
+          data={this.state.rows}
+          defaultPAgeSize={10}
+          filterable={true}
+          columns={[
+            {
+              Header: "Description",
+              accessor: "description"
+            },
+            {
+              Header: "Date",
+              accessor: "date",
+              sortable: false
+            },
+            {
+              Header: "Delete",
+              Cell: row => (
+                (
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      backgroundColor: "#dadada",
+                      borderRadius: "2px"
+                    }}
+                  />
+                ),
+                <DeleteButton onDelete={() => this.handleDelete(row.index)} />
+              )
+            }
+          ]}
+        />
       </div>
     );
   }
